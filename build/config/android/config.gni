@@ -44,10 +44,10 @@ if (is_android || is_chromeos) {
     enable_chrome_android_internal = has_chrome_android_internal
 
     # Android API level for 32 bits platforms
-    android32_ndk_api_level = 16
+    android32_ndk_api_level = 24
 
     # Android API level for 64 bits platforms
-    android64_ndk_api_level = 21
+    android64_ndk_api_level = 24
   }
 
   if (enable_chrome_android_internal) {
@@ -91,6 +91,16 @@ if (is_android || is_chromeos) {
     default_android_sdk_tools_version_suffix = "-26.0.0-dev"
     public_android_sdk = true
   }
+
+  if (android_sdk_release == "q") {
+    default_android_sdk_root = "//third_party/android_tools/sdk"
+    default_android_sdk_version = 29
+    default_android_sdk_build_tools_version = "27.0.3"
+    default_android_sdk_tools_version_suffix = "-26.0.0-dev"
+    public_android_sdk = true
+  }
+
+
 
   if (!defined(default_lint_android_sdk_root)) {
     # Purposefully repeated so that downstream can change

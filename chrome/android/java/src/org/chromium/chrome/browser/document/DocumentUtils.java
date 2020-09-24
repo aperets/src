@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Deals with Document-related API calls.
  */
-@TargetApi(Build.VERSION_CODES.LOLLIPOP)
+@TargetApi(29)
 public class DocumentUtils {
     public static final String TAG = "DocumentUtilities";
 
@@ -94,6 +94,7 @@ public class DocumentUtils {
      * @param task Task to get the baseIntent for.
      * @return The baseIntent, or null if it couldn't be retrieved.
      */
+    @TargetApi(29)
     public static Intent getBaseIntentFromTask(AppTask task) {
         RecentTaskInfo info = getTaskInfoFromTask(task);
         return info == null ? null : info.baseIntent;
@@ -106,6 +107,7 @@ public class DocumentUtils {
      * @return Fully qualified class name or null if we were not able to
      * determine it.
      */
+    @TargetApi(29)
     public static String getTaskClassName(AppTask task, PackageManager pm) {
         RecentTaskInfo info = getTaskInfoFromTask(task);
         if (info == null) return null;

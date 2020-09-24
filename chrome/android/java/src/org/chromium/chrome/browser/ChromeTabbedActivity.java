@@ -2281,7 +2281,7 @@ public class ChromeTabbedActivity
      * Merges tabs from a second ChromeTabbedActivity instance if necesssary and calls
      * finishAndRemoveTask() on the other activity.
      */
-    @TargetApi(Build.VERSION_CODES.M)
+    @TargetApi(29)
     @VisibleForTesting
     public void maybeMergeTabs() {
         if (!FeatureUtilities.isTabModelMergingEnabled()) return;

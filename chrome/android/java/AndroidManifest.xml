@@ -43,6 +43,11 @@ by a child template that "extends" this file.
     {% if target_sdk_version|int > 27 or target_sdk_version == "P" %}
         <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     {% endif %}
+    {% if target_sdk_version|int > 28 or target_sdk_version == "Q" %}
+        <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+        <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+        <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    {% endif %}
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
@@ -128,6 +133,7 @@ by a child template that "extends" this file.
         android:largeHeap="false"
         android:manageSpaceActivity="@string/manage_space_activity"
         android:supportsRtl="true"
+        android:requestLegacyExternalStorage="true"
         {% if backup_key is defined %}
         android:allowBackup="true"
         android:backupAgent="org.chromium.chrome.browser.ChromeBackupAgent"
